@@ -1,0 +1,45 @@
+% iirFunctions.m
+
+clear;clc;
+
+% Butterworth Filter
+
+n = 4; % Order of filter, Number of samples of delay
+Wn = [0.25, 0.75]; 
+[b,a] = butter(n,Wn,'stop')
+
+freqz(b,a);
+
+% Elliptic Filter
+
+ellip(n)
+
+
+
+% NOTES
+% Two ypes of filter design approaches are Butterworth and Elliptic filters
+% in MATLAB: butter & ellip
+
+% butter -> [b,a] = butter(m,Wn,ftype)
+
+% Input Variables:
+% m -> filter order, length of impulse response
+% Wn -> normalized cut-off frequency
+% ftype - filter tpe (low, high, pass, stop)
+
+% Output Variables:
+% b -> coefficients of feed-forward gains
+% a -> coefficients of feed-back gains
+
+% ellip -> [b,a] = ellip(m,Rp,Rs,Wp,ftype)
+
+% Input Variables:
+% m -> filter order, length of impulse response
+% Rp -> allowable pass-band ripple in dB
+% Rs -> stop-band attenuation
+% Wn -> normalized cut-off frequency
+% ftype - filter type (low,high,pass,stop)
+
+% Output Variables
+% b -> coefficients of feed-forward gains
+% a -> coefficients of feed-back gains
